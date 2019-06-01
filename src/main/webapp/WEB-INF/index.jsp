@@ -4,6 +4,6 @@
     <title>首页</title>
 </head>
 <body>
-我爱你
+<%@include file="common/header.jsp" %>
 </body>
 </html>
