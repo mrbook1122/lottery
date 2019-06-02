@@ -9,7 +9,7 @@
 <div class="header">
     <div class="nav-container">
         <a href="" class="nav-logo">
-            <img src="../../img/Cake.png" alt="">
+            <img src="${pageContext.request.contextPath}/img/Cake.png" alt="">
         </a>
         <a href="" class="nav-text">
             首页
