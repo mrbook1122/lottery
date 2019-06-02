@@ -1,7 +1,52 @@
 .header {
-    height: 68px;
-    max-width: 960px;
+    line-height: 68px;
+    height: 70px;
     width: 100%;
+    background: white;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+}
+
+.nav-container {
+    position: relative;
+    width: 100%;
+    max-width: 1040px;
     margin: 0 auto;
-    background: red;
+    text-align: right;
+}
+
+.nav-text {
+    font-size: 22px;
+    line-height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: auto;
+    max-width: 50%;
+    height: 22px;
+    margin-top: -10px;
+    margin-left: 75px;
+    text-decoration: none;
+}
+
+.nav-logo {
+    position: absolute;
+    left: 0;
+    top: 15%;
+    margin-left: 25px;
+}
+
+.nav-logo img {
+    display: inline;
+}
+
+.nav-menu {
+    padding-right: 5px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #313131;
+    font-size: 14px;
+    padding: 0 15px;
 }
