@@ -1,5 +1,6 @@
 package com.mrbook.dao;
 
+import com.mrbook.entity.Result;
 import com.mrbook.entity.User;
 
 import java.sql.*;
@@ -70,6 +71,28 @@ public class UserDao {
         return users;
     }
 
+    public List<User> getUsers() {
+        String query = "select * from user where coming";
+        Statement statement = null;
+        List<User> users = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setComing(rs.getBoolean("coming"));
+                user.setName(rs.getString("name"));
+                user.setNumber(rs.getString("number"));
+                users.add(user);
+            }
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
     public void deleteByNumber(String number) {
         Statement statement = null;
         String delete = "delete from user where number = '" + number + "'";
@@ -97,9 +120,23 @@ public class UserDao {
                 user.setNumber(rs.getString("number"));
                 return user;
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public void updateUser(Result result) {
+        String update = "update user set coming = " + result.getCode();
+        if (!result.getMsg().equals("all"))
+            update += " where number = '" + result.getMsg() + "'";
+        try (
+                Statement statement = connection.createStatement()
+        ) {
+            statement.executeUpdate(update);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,15 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <title>首页</title>
+    <title>Title</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/0.css">
+    <style>
+        .ant-upload {
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-<%@include file="common/header.jsp" %>
-<div style="height: 30px"></div>
 <div id="root"></div>
 <script src="${pageContext.request.contextPath}/js/vendor.bundle.js"></script>
-<script src="${pageContext.request.contextPath}/js/index.bundle.js"></script>
+<script src="${pageContext.request.contextPath}/js/register.bundle.js"></script>
 </body>
 </html>

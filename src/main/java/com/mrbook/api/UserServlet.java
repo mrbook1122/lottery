@@ -34,7 +34,7 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = userDao.getAllUsers();
         resp.setContentType("application/json;charset=UTF-8");
-        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.getWriter().write(JSON.toJSONString(users));
     }
 
@@ -48,7 +48,7 @@ public class UserServlet extends HttpServlet {
             s += new String(bytes, StandardCharsets.UTF_8);
         }
         resp.setContentType("aplication/json;charset=UTF-8");
-        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
         User user = JSON.parseObject(s, User.class);
         if (userDao.findByNumber(user.getNumber()) != null) {
             Result result = new Result(100, "学号已存在");
@@ -61,7 +61,7 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Headers", "content-type");
     }
 
