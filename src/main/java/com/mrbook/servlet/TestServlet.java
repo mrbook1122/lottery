@@ -18,7 +18,8 @@ public class TestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        LoginUser loginUser = loginUserDao.findByName("test");
+        String name = (String) req.getSession().getAttribute("name");
+        LoginUser loginUser = loginUserDao.findByName(name);
         resp.setContentType("application/json;charset=UTF-8");
         resp.getWriter().write(JSON.toJSONString(loginUser));
     }

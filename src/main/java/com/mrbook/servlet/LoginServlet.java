@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
             String contextPath = req.getContextPath();
             req.getSession().setAttribute("name", loginUser.getName());
             if (loginDTO.isRemember()) {
-                Cookie cookie = new Cookie("login", "true");
+                Cookie cookie = new Cookie("login", loginDTO.getName());
                 if (loginDTO.isRemember())
                     cookie.setMaxAge(1000 * 3600 * 24);
                 resp.addCookie(cookie);
